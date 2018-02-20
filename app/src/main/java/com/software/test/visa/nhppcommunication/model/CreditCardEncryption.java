@@ -39,4 +39,12 @@ public class CreditCardEncryption implements Parcelable {
             return new CreditCardEncryption[size];
         }
     };
+
+    public long getEncryptedPAN() {
+        return encryptedPAN;
+    }
+
+    public void setEncryptedPAN(long encryptedPAN) {
+        this.encryptedPAN = encryptedPAN;
+    }
 }

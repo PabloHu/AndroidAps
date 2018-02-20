@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         List<CreditCard> creditCardList = new ArrayList<>();
         CreditCard creditCard = new CreditCard(
                 1234567890123456l, "piru", 01,19,123);
