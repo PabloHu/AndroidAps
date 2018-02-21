@@ -9,17 +9,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CreditCard {
     private static final AtomicInteger count = new AtomicInteger(0);
     int id;
+    String bankname;
     long number;
     String customerName;
-    int expirationDay;
     int expirationMonth;
+    int expirationYear;
     int CVCNumber;
 
-    public CreditCard(long number, String customerName, int expirationDay, int expirationMonth, int CVCNumber) {
+    public CreditCard(String bankname, long number, String customerName, int expirationMonth, int expirationYear, int CVCNumber) {
+        this.bankname = bankname;
         this.number = number;
         this.customerName = customerName;
-        this.expirationDay = expirationDay;
         this.expirationMonth = expirationMonth;
+        this.expirationYear = expirationYear;
         this.CVCNumber = CVCNumber;
         id = count.incrementAndGet();
     }
@@ -32,12 +34,28 @@ public class CreditCard {
         this.id = id;
     }
 
+    public String getBankname() {
+        return bankname;
+    }
+
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
+    }
+
     public long getNumber() {
         return number;
     }
 
     public void setNumber(long number) {
         this.number = number;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public int getExpirationMonth() {
@@ -48,20 +66,12 @@ public class CreditCard {
         this.expirationMonth = expirationMonth;
     }
 
-    public int getExpirationDay() {
-        return expirationDay;
+    public int getExpirationYear() {
+        return expirationYear;
     }
 
-    public void setExpirationDay(int expirationDay) {
-        this.expirationDay = expirationDay;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setExpirationYear(int expirationYear) {
+        this.expirationYear = expirationYear;
     }
 
     public int getCVCNumber() {

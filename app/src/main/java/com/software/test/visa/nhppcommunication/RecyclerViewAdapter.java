@@ -71,7 +71,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder position: " + position);
-        CreditCard creditCard = creditCardList.get(position);
+        final CreditCard creditCard = creditCardList.get(position);
 
         holder.cvCreditCard.setId(creditCard.getId());
         holder.tvCardHolderName.setText(creditCard.getCustomerName());
@@ -81,7 +81,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View view) {
                 //Work to get token
                 long encryption = 1234567890123456l;
-                customPopup(encryption);
+                customPopup(encryption, creditCard.getBankname());
                 Toast.makeText(context, "Credit Wallet ID: " + holder.cvCreditCard.getId(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -96,7 +96,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
 
-    public void customPopup(final long encryption) {
+    public void customPopup(final long encryption, final String bankName) {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.custom_pop_up);
         dialog.setTitle("Title...");
@@ -108,7 +108,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         // image.setImageResource(R.drawable.boa_icon);
 
         Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
-        Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
+        final Button btnCancel = (Button) dialog.findViewById(R.id.btnCancel);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,11 +130,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent i=new Intent();
                 i.setAction(Intent.ACTION_VIEW);
 
-               i.setAction("com.software.test.visa.walletpay.Main2Activity");
+              // i.setAction("com.software.test.visa.walletpay.Main2Activity");
 
-                i.setData(Uri.parse("http://www.amazon.com"));
-                i.addCategory(Intent.CATEGORY_DEFAULT);
-                i.setType("text/plain");
+                i.setData(Uri.parse("http://myURI?pushData="+encryption+"&networkId="+bankName));
+
+
 
 
                 context.startActivity(i);

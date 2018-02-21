@@ -26,19 +26,17 @@ public class Main2Activity extends AppCompatActivity {
 
         tvCreditCardToken = (TextView) findViewById(R.id.tvCreditCardToken);
 
-        Uri data = this.getIntent().getData();
-      //  Uri uri = getIntent().getData();
-        WebView webView = (WebView) findViewById(R.id.WebView01);
-        webView.setWebViewClient(new Callback());
-        try {
-            Log.d(TAG, "onCreate: " + data.toString());
-        }catch (Exception e) {
-            Log.d(TAG, "onCreate: " + e.toString());
-        }
-//        webView.loadUrl(url.toString());
-
+        Intent intent = getIntent();
+        Uri uri = intent.getData();
+        String networkId = uri.getQueryParameter("networkId");
+        String pushData = uri.getQueryParameter("pushData");
+        Log.d(TAG, "onCreate: "+networkId);
+        Log.d(TAG, "onCreate: "+pushData);
         //handle incoming
-        incoming();
+ //       incoming();
+
+
+
 /*
         //first
         Long encryption = null;

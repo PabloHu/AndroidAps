@@ -28,17 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
         List<CreditCard> creditCardList = new ArrayList<>();
         CreditCard creditCard = new CreditCard(
-                1234567890123456l, "piru", 01,19,123);
+                 "Bank of America",1234567890123456l, "piru", 01,19,123);
         creditCardList.add(creditCard);
         creditCard = null;
 
         creditCard = new CreditCard(
-                1234567890123456L, "champis", 01,19,123);
+                "Chase", 1234567890123456L, "champis", 01,19,123);
         creditCardList.add(creditCard);
         creditCard = null;
 
         creditCard = new CreditCard(
-                1234567890123456L, "toby", 01,19,123);
+                "Wells Fargo", 1234567890123456L, "toby", 01,19,123);
         creditCardList.add(creditCard);
         creditCard = null;
 
